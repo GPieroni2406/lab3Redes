@@ -1,0 +1,14 @@
+nohup tcpdump -i any -G 120 -W 1 -v -n -s 1518 -w shared/$HOSTNAME.pcap &
+
+echo "auto eth0" >> /etc/network/interfaces
+echo "iface eth0 inet dhcp" >> /etc/network/interfaces
+
+/etc/init.d/networking restart
+
+
+dhclient -r eth0
+dhclient eth0
+
+
+
+

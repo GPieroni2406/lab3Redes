@@ -1,0 +1,8 @@
+nohup tcpdump -i any -G 120 -W 1 -v -n -s 1518 -w shared/$HOSTNAME.pcap &
+
+
+ifconfig eth1 20.23.32.1 netmask 255.255.255.224 broadcast 20.23.32.31 up
+ifconfig eth0 192.168.2.2 netmask 255.255.255.252 broadcast 192.168.2.3 up
+
+route add default gw 192.168.2.1 dev eth0
+

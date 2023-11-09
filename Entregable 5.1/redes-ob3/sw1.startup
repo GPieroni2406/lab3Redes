@@ -1,0 +1,26 @@
+/sbin/ifconfig eth0 up
+/sbin/ifconfig eth1 up
+/sbin/ifconfig eth2 up
+/sbin/ifconfig eth3 up
+/sbin/ifconfig eth4 up
+
+
+
+
+
+
+brctl addbr br100       # creates a bridging process  called br100
+brctl addbr br200       # creates a bridging process  called br200
+brctl addif br100 eth0
+brctl addif br200 eth1
+
+brctl addif br200 eth2  
+brctl addif br200 eth3
+brctl addif br100 eth4
+
+
+brctl stp br100 on
+brctl stp br200 on
+
+ifconfig br100 up
+ifconfig br200 up
